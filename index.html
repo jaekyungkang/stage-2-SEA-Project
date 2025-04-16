@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LA TV Shows | Home</title>
-    <meta name="description" content="A Catalog of Shows Set in Los Angeles" />
+    <title>Snoopy Characters</title>
+    <meta name="description" content="Snoopy Character Log" />
     <link rel="stylesheet" href="style.css" />
     <script type="text/javascript" src="scripts.js"></script>
   </head>
 
   <body>
     <header class="main-header">
-      <h1 class="title">LA TV Shows</h1>
+      <input type="text" id="search-bar" placeholder="Search characters..." />
+      <label>
+        <input type="checkbox" id="toggle-favs" />
+        Show favorites only
+      </label>
+      <h1 class="title">Snoopy Character Log</h1>
     </header>
+
+    <!-- Card container -->
     <div id="card-container"></div>
-    <div class="card" style="display: none">
-      <div class="card-content">
-        <h2>TV Show Title</h2>
-        <img src="" alt="TV Show Poster" />
-        <ul>
-          <li>Bullet Point 1</li>
-          <li>Bullet Point 2</li>
-          <li>Bullet Point 3</li>
-        </ul>
+
+    <div class="card" id="card" style="display:none;">
+      <img src="" alt="Character" />
+      <h2></h2>
+      <div class="description"></div>
+      <div class="fun-fact"></div>
+    </div>
+
+    <div id="comic-container" style="text-align: center; margin: 30px 0;">
+
+    </div>
+
+    <div id="comic-popup" class="popup-overlay" onclick="hideComicPopup(event)">
+      <div class="popup-content">
+        <span class="close-btn" onclick="hideComicPopup(event)">×</span>
+        <img id="comic-image" src="" alt="Random Comic" />
       </div>
     </div>
-    <div class="footer">
-      <button onclick="quoteAlert();">Get A Quote!</button>
+
+    <div id="quote-popup" class="quote-popup">
+      <div class="popup-overlay" onclick="hideQuotePopup(event)"></div>
+      <p id="quote-text" class="quote-text"></p>
+      <p class="quote-author">- Charles Schulz</p>
+      <button class="close-quote-btn" onclick="hideQuotePopup(event)">Close</button>
+    </div>
+    
+    <!-- Footer with buttons -->
+    <div class="footer"> 
+      <button onclick="showQuotePopup();">Quote by Charles!</button>
+      <button onclick="showRandComic()">Show Me a Comic!</button>
       <button onclick="removeLastCard();">Remove A Card!</button>
     </div>
   </body>
